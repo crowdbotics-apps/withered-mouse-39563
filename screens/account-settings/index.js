@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { Pressable } from "react-native";
 import { useState } from "react";
-import { Text, StyleSheet, View, SafeAreaView, Switch, ScrollView } from "react-native";
+import { Text, StyleSheet, View, SafeAreaView, ScrollView } from "react-native";
 
 const AccountSettingsScreen = () => {
   const navigation = useNavigation();
@@ -42,12 +42,14 @@ const AccountSettingsScreen = () => {
             
           </View>
           <View style={styles.toggle}>
-            <Text style={styles.toggleText}>SMS Notifications</Text>
-            <Switch style={styles.toggleSwitch} value={smsNotifications} onValueChange={value => setSmsNotifications(value)} />
+            <Pressable onPress={() => {
+            navigation.navigate("supportSendFeedback");
+          }}><Text style={styles.toggleText}>{"Support/ Send Feedback"}</Text></Pressable>
+            
           </View>
           <View style={styles.toggle}>
-            <Text style={styles.toggleText}>Deactivate Account</Text>
-            <Switch style={styles.toggleSwitch} value={deactivateAccount} onValueChange={value => setDeactivateAccount(value)} />
+            <Text style={styles.toggleText}>{"Log out"}</Text>
+            
           </View>
         </View>
       </ScrollView>

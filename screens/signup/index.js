@@ -1,4 +1,5 @@
-import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import { Text, View, TouchableOpacity, Image, StyleSheet, TextInput, TouchableHighlight } from "react-native";
 
 const pressed = () => {
@@ -79,12 +80,6 @@ const styles = StyleSheet.create({
   mb20: {
     marginBottom: 20
   },
-  forgotPassword: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 40
-  },
   loginContainer: {
     width: "80%",
     alignSelf: "center"
@@ -140,6 +135,7 @@ const styles = StyleSheet.create({
 export default Signup;
 
 const Button = props => {
+  const navigation = useNavigation();
   return <TouchableHighlight onPress={props.onPress} underlayColor='#DDDDDD'>
       <View style={[btnStyles.button, {
       backgroundColor: props.backgroundColor ? props.backgroundColor : "#000000",
@@ -147,9 +143,11 @@ const Button = props => {
       borderWidth: props.borderWidth ? props.borderWidth : 0,
       borderColor: props.borderColor ? props.borderColor : "#000000"
     }]}>
-        <Text style={[btnStyles.text, {
-        color: props.color ? props.color : "#ffffff"
-      }]}>{props.children}</Text>
+        <Pressable onPress={() => {
+        navigation.navigate("Untitled11");
+      }}><Text style={[btnStyles.text, {
+          color: props.color ? props.color : "#ffffff"
+        }]}>{props.children}</Text></Pressable>
       </View>
     </TouchableHighlight>;
 };

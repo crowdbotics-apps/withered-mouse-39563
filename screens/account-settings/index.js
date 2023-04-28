@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { Pressable } from "react-native";
 import { useState } from "react";
-import { Text, StyleSheet, View, SafeAreaView, TextInput, Switch, ScrollView } from "react-native";
+import { Text, StyleSheet, View, SafeAreaView, Switch, ScrollView } from "react-native";
 
 const AccountSettingsScreen = () => {
   const navigation = useNavigation();
@@ -25,23 +25,21 @@ const AccountSettingsScreen = () => {
           }}><Text style={styles.inputText}>{"Privacy policy"}</Text></Pressable>
             
           </View>
-          <View style={styles.nameInput}>
-            <Text style={styles.inputText}>Email Address</Text>
-            <TextInput style={styles.input} placeholder="Enter your Email Address" placeholderTextColor="#9B9B9B" autoCapitalize="none" autoCorrect={false} value={email} onChangeText={text => setEmail(text)} />
-          </View>
-          <View style={styles.nameInput}>
-            <Text style={styles.inputText}>Card number</Text>
-            <TextInput style={styles.input} placeholder="Enter your Card Number" placeholderTextColor="#9B9B9B" autoCapitalize="none" autoCorrect={false} value={cardNumber} onChangeText={text => setCardNumber(text)} />
-          </View>
+          
+          
         </View>
         <View style={styles.togglesContainer}>
           <View style={styles.toggle}>
-            <Text style={styles.toggleText}>Notifications</Text>
-            <Switch style={styles.toggleSwitch} value={notifications} onValueChange={value => setNotifications(value)} />
+            <Pressable onPress={() => {
+            navigation.navigate("Untitled14");
+          }}><Text style={styles.toggleText}>{"Payment history "}</Text></Pressable>
+            
           </View>
           <View style={styles.toggle}>
-            <Text style={styles.toggleText}>Email Notifications</Text>
-            <Switch style={styles.toggleSwitch} value={emailNotifications} onValueChange={value => setEmailNotifications(value)} />
+            <Pressable onPress={() => {
+            navigation.navigate("Untitled13");
+          }}><Text style={styles.toggleText}>{"Billing Preferences"}</Text></Pressable>
+            
           </View>
           <View style={styles.toggle}>
             <Text style={styles.toggleText}>SMS Notifications</Text>
@@ -77,15 +75,6 @@ const styles = StyleSheet.create({
   inputText: {
     fontSize: 16,
     marginLeft: 20
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: "#e6e6e6",
-    borderRadius: 10,
-    padding: 10,
-    paddingLeft: 20,
-    marginVertical: 10,
-    width: "100%"
   },
   togglesContainer: {
     flex: 0.3,
